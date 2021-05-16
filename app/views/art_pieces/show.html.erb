@@ -9,7 +9,7 @@
         <p>Painting Technic : <%= @art_piece.painting_technic %></p>
         <p></p>
       </div>
-      <h2 class="art-piece-pricing"><%= @art_piece.unit_price %>€</h2>
+      <h2 class="art-piece-pricing" data-price="<%= @art_piece.unit_price %>"><%= @art_piece.unit_price %>€</h2>
     </div>
 
     <div class="container">
@@ -17,10 +17,11 @@
         <h2>Book this art piece</h2>
 
         <%= simple_form_for [ @art_piece, @booking ] do |f| %>
-          <%= f.input :start_time, as: :string, required: false, input_html: {class: "datepicker"} %>
-          <%= f.input :end_time, as: :string, required: false, input_html: {class: "datepicker"} %>
+          <%= f.input :start_time, as: :string, required: false, input_html: {class: "datepicker1"} %>
+          <%= f.input :end_time, as: :string, required: false, input_html: {class: "datepicker2"} %>
           <%= f.button :submit, "Book", class: "btn btn-primary" %>
         <% end %>
+        <div class="price mt-3"></div>
       </div>
     </div>
 
