@@ -11,6 +11,8 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.art_piece = @art_piece
     @booking.user = current_user
+    days = @booking.end_time - @booking.start_time + 1
+    @booking.price = days * @art_piece.unit_price
     if @booking.save
       sleep 3
       redirect_to dashboards_path(current_user)
