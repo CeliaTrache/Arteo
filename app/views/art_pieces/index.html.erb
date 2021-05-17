@@ -1,6 +1,9 @@
-<h1>List of all Art Pieces</h1>
+<h1>Our Art Pieces</h1>
 
 <% @art_pieces.each do |art_piece| %>
-  <%= art_piece.title %>
-  <%= art_piece.unit_price %>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= art_piece.picture %>)">
+    <%= art_piece.title %>
+    <%= art_piece.unit_price %>
+  </div>
 <% end %>
+
