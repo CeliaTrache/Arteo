@@ -7,3 +7,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 nuit_etoilee = ArtPiece.create(title: 'La nuit étoilée', artist: 'Van Gogh', unit_price: 1000, description: "", category: "", painting_technic: "", size: "", picture: "", user_id: 1)
+Joconde = ArtPiece.create(title: 'Mona lisa', artist: 'Léonard de Vinci', unit_price: 1000000000, description: "", category: "", painting_technic: "", size: "", picture: "", user_id: 2)
