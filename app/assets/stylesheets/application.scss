@@ -17,8 +17,18 @@
 
 
 body {
-  position: relative
-}
+  height: 100%
+// min-height: 100%; 
+//   padding:0;
+//   height:100vh;
+//   position:relative;
+  // height: 100%;
+  // margin:0;
+  // padding:0;
+ }
+
 .main-container {
-  min-height: calc(100vh - 182px);
+//   min-height: calc(100vh - 182px);
+//   min-height:120%;
+  min-height:calc(100vh - 182px);
 }
