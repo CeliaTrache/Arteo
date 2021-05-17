@@ -4,6 +4,7 @@ class ArtPiecesController < ApplicationController
   end
 
   def show
+    @art_piece = ArtPiece.find(params[:id])
   end
 
   def new
