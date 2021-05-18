@@ -1,2 +1,23 @@
+<div class="card-trip">
+  <img src="<%=@art_piece.picture%>"/>
+  <div class="card-trip-infos">
+    <div>
+      <h2><%=@art_piece.title%></h2>
+      <p><%=@art_piece.description%></p>
+      <p><%=@art_piece.artist%></p>
+      <p><%=@art_piece.category%></p>
+      <p><%=@art_piece.painting_technic%></p>
+      <p><%=@art_piece.size%></p>
+      <p></p>
+    </div>
+    <h2 class="card-trip-pricing"><%=@art_piece.unit_price%>€</h2>
+  </div>
+</div>
 
-<h1><%= @art_piece.title %></h1>
+<%= simple_form_for(art_piece) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :rating %>
+  <%= f.submit %>
+<% end %>
+
