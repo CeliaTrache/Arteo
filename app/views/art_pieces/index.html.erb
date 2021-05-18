@@ -1,10 +1,25 @@
-<h1>Our Art Pieces</h1>
+<div class="container mt-2">
+  <h1>Discover our Art Pieces</h1>
+</div>
 
 <div class="cards">
   <% @art_pieces.each do |art_piece| %>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= art_piece.picture %>)">
-      <%= art_piece.title %>
-      <%= art_piece.unit_price %>
+    <div class="card-art-pieces">
+      <img src=<%= art_piece.picture %> />
+      <div class="card-art-pieces-infos">
+        <div class="card-art-pieces-infos-details">
+          <h2><%= art_piece.title %> <span>• <%= art_piece.artist %></span></h2>
+          <p><%= art_piece.description %> short description here !</p>
+        </div>
+        <div class="card-art-pieces-booking">
+          <%= link_to 'Book this art piece', art_piece_path(art_piece) %>
+          <h2 class="card-art-pieces-pricing"><%= art_piece.unit_price %>€</h2>
+        </div>
+        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-art-pieces-user avatar-bordered" />
+      </div>
     </div>
   <% end %>
 </div>
+
+
+
