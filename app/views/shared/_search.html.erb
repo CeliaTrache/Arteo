@@ -1,0 +1,11 @@
+
+<div class="form-group">
+  <%= form_tag art_pieces_path, class: "d-flex pb-5", method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Search by title, artist or category"
+      %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
+</div>
