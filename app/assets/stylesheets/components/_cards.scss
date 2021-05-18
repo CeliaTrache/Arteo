@@ -1,3 +1,57 @@
+// Art Piece cards
+.card-art-pieces {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-art-pieces > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-art-pieces h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  span {
+    font-weight: 100;
+    opacity: .7;
+  }
+}
+
+.card-art-pieces p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-art-pieces .card-art-pieces-infos {
+  padding: 16px;
+  position: relative;
+}
+
+.card-art-pieces-infos .card-art-pieces-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
+
+.card-art-pieces .card-art-pieces-infos-details {
+  height: 100px;
+}
+
+.card-art-pieces .card-art-pieces-booking {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+// Art Category cards
+
 .card-category {
   background-size: cover;
   background-position: center;
