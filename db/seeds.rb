@@ -13,3 +13,7 @@ nuit_etoilee = ArtPiece.create(title: 'La nuit étoilée', artist: 'Van Gogh', u
 joconde = ArtPiece.create(title: 'La Joconde', artist: 'Leonard de Vinci', unit_price: 1000, description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.", size: "100x100", picture: "https://www.ixxiyourworld.com/media/2387797/mona-lisa.jpg?mode=crop&width=562&height=838", user_id: 1)
 
 creation_adam = ArtPiece.create(title: "La Création d'Adam", artist: 'Michel Ange', unit_price: 1000, description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.", size: "100x100", picture: "https://www.francetvinfo.fr/pictures/-_kvn4VrUv06ZsUBKrDU-5dODds/752x423/2021/01/15/phpKFVB5z.jpg", user_id: 1)
+
+User.delete_all
+
+User.create()
