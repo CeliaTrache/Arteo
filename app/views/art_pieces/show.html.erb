@@ -1,40 +1,55 @@
-<div class="card-trip">
-  <img src="<%=@art_piece.picture%>"/>
-  <div class="card-trip-infos">
-    <div>
-      <h2><%=@art_piece.title%></h2>
-      <p><%=@art_piece.description%></p>
-      <p><%=@art_piece.artist%></p>
-      <p><%=@art_piece.category%></p>
-      <p><%=@art_piece.painting_technic%></p>
-      <p><%=@art_piece.size%></p>
-      <p></p>
+<div class="show-container" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "art_gallery_3.jpg", height: 100, crop: :fill %>')">
+  <div class="art-piece-container">
+    <h2><%= @art_piece.title %> <span class="artist">• <%= @art_piece.artist %> • </span><span class="size"><%= @art_piece.size %></span></h2>
+    <img src="<%= @art_piece.picture %>"/>
+    <div class="art-piece-infos">
+      <div>
+        <p>Description : <%= @art_piece.description %></p>
+        <p>Category : <%= @art_piece.category %></p>
+        <p>Painting Technic : <%= @art_piece.painting_technic %></p>
+        <p></p>
+      </div>
+      <h2 class="art-piece-pricing"><%= @art_piece.unit_price %>€</h2>
     </div>
-    <h2 class="card-trip-pricing"><%=@art_piece.unit_price%>€</h2>
+
+    <div class="container">
+      <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
+        <h2>Book this art piece</h2>
+
+        <%= simple_form_for [ @art_piece, @booking ] do |f| %>
+          <%= f.input :start_time, as: :string, required: false, input_html: {class: "datepicker"} %>
+          <%= f.input :end_time, as: :string, required: false, input_html: {class: "datepicker"} %>
+          <%= f.button :submit, "Book", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+
+    <!-- L'ancien formulaire avec le calendrier (sans back)
+    <div class="form-group">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-2">
+            <input type="date" class="form-control input-lg" name="start" placeholder="Check In">
+          </div>
+          <div class="col-md-2">
+            <input type="date" class="form-control input-lg" name="end" placeholder="Check Out">
+          </div>
+          <div class="col-md-2">
+            <a class="btn btn-outline-success" href="#" role="button">Book</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    -->
+
+    <!-- Le simple form (avec back)
+    <%= simple_form_for [ @art_piece, @booking ] do |f| %>
+      <%= f.input :start_time %>
+      <%= f.input :end_time %>
+      <%= f.submit %>
+    <% end %>
+    -->
   </div>
 </div>
-
-
-<div class="form-group">
-  <div class="container">
-    <div class="row">
-    <div class="col-md-2">
-      <input type="date" class="form-control input-lg" name="start" placeholder="Check In">
-    </div>
-    <div class="col-md-2">
-      <input type="date" class="form-control input-lg" name="end" placeholder="Check Out">
-    </div>
-    <div class="col-md-2">
-      <a class="btn btn-outline-success" href="#" role="button">Book</a>
-    </div>
-  </div>
-</div>
-
-
-<%= simple_form_for [ @art_piece, @booking ] do |f| %>
-  <%= f.input :start_time %>
-  <%= f.input :end_time %>
-  <%= f.submit %>
-<% end %>
 
 
