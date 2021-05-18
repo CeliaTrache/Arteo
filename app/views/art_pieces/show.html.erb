@@ -14,10 +14,27 @@
   </div>
 </div>
 
-<%= simple_form_for(@art_piece) do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :unit_price %>
+
+<div class="form-group">
+  <div class="container">
+    <div class="row">
+    <div class="col-md-2">
+      <input type="date" class="form-control input-lg" name="start" placeholder="Check In">
+    </div>
+    <div class="col-md-2">
+      <input type="date" class="form-control input-lg" name="end" placeholder="Check Out">
+    </div>
+    <div class="col-md-2">
+      <a class="btn btn-outline-success" href="#" role="button">Book</a>
+    </div>
+  </div>
+</div>
+
+
+<%= simple_form_for [ @art_piece, @booking ] do |f| %>
+  <%= f.input :start_time %>
+  <%= f.input :end_time %>
   <%= f.submit %>
 <% end %>
+
 

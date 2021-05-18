@@ -1,12 +1,14 @@
 class BookingsController < ApplicationController
   def new
-    # @booking = Booking.new
-    # authorize @booking
+    @art_piece = ArtPiece.find(params[:art_piece_id])
+    @booking = Booking.new
+    authorize @booking
   end
 
   def create
-    # @booking = Booking.new(whitelist)
-    # authorize @booking
+    @art_piece = ArtPiece.find(params[:art_piece_id])
+    @booking = Booking.new(whitelist)
+    authorize @booking
   end
 
   def edit
@@ -21,9 +23,9 @@ class BookingsController < ApplicationController
   def show
   end
 
-  private 
+  private
 
   def whitelist
-    # params.require(:booking).permit(:start_time, :end_time)
+    params.require(:booking).permit(:start_time, :end_time)
   end
 end
