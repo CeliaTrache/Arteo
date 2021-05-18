@@ -14,10 +14,10 @@
   </div>
 </div>
 
-<%= simple_form_for(art_piece) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :address %>
-  <%= f.input :rating %>
+<%= simple_form_for(@art_piece) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :unit_price %>
   <%= f.submit %>
 <% end %>
 
