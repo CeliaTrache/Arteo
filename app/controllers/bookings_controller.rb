@@ -10,8 +10,12 @@ class BookingsController < ApplicationController
     @booking = Booking.new(whitelist)
     authorize @booking
     @booking.art_piece = @art_piece
-    @booking.save
-    redirect_to art_pieces_path
+    @booking.user = current_user
+    if @booking.save
+      redirect_to art_pieces_path
+    else
+      redirect_to art_piece_path(@art_piece)
+    end
   end
 
   def edit
