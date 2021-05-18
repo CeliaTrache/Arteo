@@ -1,8 +1,37 @@
-.card-trip {
-  margin: 20px;
-  background-color: white;
+.art-piece-container {
+  width: 800px;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 16px;
 }
 
-.card-trip-infos {
+.art-piece-container h2 {
+  font-weight: bold;
+  margin: 0;
+  margin-bottom: 8px;
+  span {
+    font-weight: 100;
+    opacity: .7;
+  }
+  .size {
+    font-size: 20px;
+  }
+}
 
+.art-piece-container img {
+  width: 100%;
+}
+
+.art-piece-container .art-piece-infos {
+  margin: 16px 0;
+}
+
+.art-piece-container .art-piece-pricing {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.art-piece-container .form-group {
+  display: flex;
+  justify-content: flex-end;
 }

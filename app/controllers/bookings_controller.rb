@@ -9,6 +9,9 @@ class BookingsController < ApplicationController
     @art_piece = ArtPiece.find(params[:art_piece_id])
     @booking = Booking.new(whitelist)
     authorize @booking
+    @booking.art_piece = @art_piece
+    @booking.save
+    redirect_to art_pieces_path
   end
 
   def edit

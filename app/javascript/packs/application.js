@@ -35,3 +35,6 @@ document.addEventListener('turbolinks:load', () => {
   initUpdateNavbarOnScroll();
 });
 
+import { initFlatpickr } from "../plugins/flatpickr";
+
+initFlatpickr();
