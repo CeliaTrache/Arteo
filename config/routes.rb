@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   end
 
   resources :bookings, only: [:edit, :update, :destroy, :show]
+
+  resources :dashboards, only: :index
 end
