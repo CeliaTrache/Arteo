@@ -14,7 +14,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to art_pieces_path
     else
-      redirect_to art_pieces_path(@art_piece)
+      redirect_to art_piece_path(@art_piece)
     end
   end
 

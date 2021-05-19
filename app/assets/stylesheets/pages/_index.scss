@@ -2,6 +2,12 @@
 @import "home";
 @import "show";
 
-.container {
+.art-pieces-container {
+  margin: 0 auto;
+  padding: 16px 0;
+}
+
+.art-pieces-container h1 {
   text-align: center;
+  color: white;
 }
