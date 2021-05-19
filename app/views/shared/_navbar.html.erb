@@ -21,7 +21,7 @@
           </li>
           <li class="nav-item dropdown">
             <div class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%="CG"%>
+              <%=current_user.first_name.first.capitalize%><%=current_user.last_name.first.capitalize%>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <%= link_to "Action", "#", class: "dropdown-item" %>
                 <%= link_to "Another action", "#", class: "dropdown-item" %>
