@@ -6,8 +6,11 @@
   height: 100px;
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
-  position: absolute;
-  bottom: 0;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin-bottom: 0px;
 }
 .footer-links {
   display: flex;
