@@ -10,6 +10,9 @@ Booking.delete_all
 ArtPiece.delete_all
 User.delete_all
 
+
+user_1 = User.create(email: "leonard@hotmail.fr", password: "123456", first_name: "vincent", last_name:"vinciguerra")
+
 user = User.create(email: "cindygrenet@hotmail.fr", password: "123456", first_name: "Cindy", last_name: "Grenet")
 
 nuit_etoilee = ArtPiece.create(title: 'La nuit étoilée', artist: 'Van Gogh', unit_price: 900, description: "La Nuit étoilée est une peinture de l'artiste peintre postimpressionniste néerlandais Vincent van Gogh.", size: "74 cm x 92 cm", picture: "https://zeuxis-art.com//img/cms/Il%20etait%20une%20fois/la_nuit_etoilee.jpg", user: user, category: "Impressionnistic", painting_technic: "Peinture à l'huile")
