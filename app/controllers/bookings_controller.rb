@@ -12,7 +12,8 @@ class BookingsController < ApplicationController
     @booking.art_piece = @art_piece
     @booking.user = current_user
     if @booking.save
-      redirect_to art_pieces_path
+      sleep 3
+      redirect_to dashboards_path(current_user)
     else
       redirect_to art_piece_path(@art_piece)
     end
