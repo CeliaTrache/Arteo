@@ -15,7 +15,10 @@
 @import "flatpickr/dist/flatpickr";
 @import "flatpickr/dist/themes/airbnb";
 
+
+body {
+  position: relative
+}
 .main-container {
-  min-height: calc(100vh - 100px);
-  position: relative;
+  min-height: calc(100vh - 182px);
 }
