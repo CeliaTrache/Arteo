@@ -17,16 +17,16 @@
   <h2 class="popular">Have a look at our most popular paintings !</h2>
   <div class="cards">
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1571115764595-644a1f56a55c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=380&q=80)">
-    Breakfast
+     <%= link_to "Breakfast", art_pieces_path({query:"Breakfast"}), class: "home-link" %>
     </div>
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1574182245530-967d9b3831af?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=377&q=80)">
-    Vase with Flowers
+    <%= link_to "Vase with Flowers", art_pieces_path({query:"Vase with Flowers"}), class: "home-link" %>
     </div>
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1532347939055-0d93107d087e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=704&q=80)">
-    Abstract
+    <%= link_to "Abstract", art_pieces_path({query:"Abstract"}), class: "home-link" %>
     </div>
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1544867885-2333f61544ad?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80)">
-    Chennai
+     <%= link_to "Chennai", art_pieces_path({query:"Chennai"}), class: "home-link" %>
     </div>
   </div>
 </div>
