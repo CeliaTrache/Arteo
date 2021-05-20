@@ -1,4 +1,4 @@
-<div class="show-container dashboard" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "art_gallery_3.jpg", crop: :fill %>')">
+<div class="dashboard" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "art_gallery_3.jpg", crop: :fill %>')">
 
   <div class="dashboard-container">
 
@@ -33,7 +33,7 @@
               <p><%= booking.price %> €</p>
             </div>
             <div class="card-statut">
-              <p>statut</p>
+              <p><%= booking.status %></p>
             </div>
           </ul>
           <% end %>
@@ -64,14 +64,11 @@
               </div>
               <div class="card-statut">
                 <div class="btn btn-group">
-                  <%# <%= link_to 'Accept', dashboard_path, method: :patch, class: "btn btn-outline-success" %> %>
+                  <%= link_to 'Accept', dashboard_path, method: :patch, class: "btn btn-outline-success" %>
                 </div>
                 <div class="btn btn-group">
-                  <%# <%= link_to 'Decline', dashboard_path, method: :patch, class: "btn btn-outline-danger" %> %>
+                  <%= link_to 'Decline', dashboard_path, method: :patch, class: "btn btn-outline-danger" %>
                 </div>
-                  <%# <%= simple_form_for [ @art_piece, @booking ] do |f| %>
-                    <%# <%= f.button :submit, "Accept", class: "btn btn-success", data: { toggle: "modal", target: "#exampleModal" } %>
-                  <%# <% end %>
               </div>
             </div>
           </ul>
