@@ -1,20 +1,19 @@
 <div class="index-container" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "art_gallery_2.jpg", height: 100 %>'); background-position: center">
   <div class="art-pieces-container">
-    <h1>Discover our Art Pieces</h1>
-    <div class="container justify-center mt-4">
-    <%= render "shared/search" %>
+    <h1 class="mt-4">Discover our Art Pieces</h1>
+    <div class="mt-5">
+      <%= render "shared/search" %>
     </div>
-    <div class="cards">
+    <div class="cards mb-4">
       <% @art_pieces.each do |art_piece| %>
         <div class="card-art-pieces">
           <img src=<%= art_piece.picture %> />
           <div class="card-art-pieces-infos">
             <div class="card-art-pieces-infos-details">
               <h2><%= art_piece.title %> <span>• <%= art_piece.artist %></span></h2>
-              <p><%= art_piece.description %></p>
             </div>
             <div class="card-art-pieces-booking">
-              <%= link_to 'Book this art piece', art_piece_path(art_piece) %>
+              <%= link_to 'See details', art_piece_path(art_piece) %>
               <h2 class="card-art-pieces-pricing"><%= art_piece.unit_price %>€</h2>
             </div>
           </div>
