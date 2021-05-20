@@ -14,6 +14,7 @@
     </div>
 
     <div class="contents">
+      <%# <div class="flex-card"> %>
       <div class="content bookings">
         <div class="content-infos">
           <% @bookings.each do |booking| %>
@@ -40,9 +41,11 @@
         <div class="btn btn-group">
           <%= link_to 'Book another painting', art_pieces_path, class: "btn btn-outline-dark" %>
         </div>
+        <%# </div> %>
       </div>
 
       <div class="content collection inactive">
+        <%# <div class="flex-card"> %>
         <div class="content-infos">
           <% @bookings.each do |booking| %>
           <ul class="dashboard-card">
@@ -61,10 +64,10 @@
               </div>
               <div class="card-statut">
                 <div class="btn btn-group">
-                  <%= link_to 'Accept', "#", class: "btn btn-outline-success" %>
+                  <%# <%= link_to 'Accept', dashboard_path, method: :patch, class: "btn btn-outline-success" %> %>
                 </div>
                 <div class="btn btn-group">
-                  <%= link_to 'Decline', "#", class: "btn btn-outline-danger" %>
+                  <%# <%= link_to 'Decline', dashboard_path, method: :patch, class: "btn btn-outline-danger" %> %>
                 </div>
                   <%# <%= simple_form_for [ @art_piece, @booking ] do |f| %>
                     <%# <%= f.button :submit, "Accept", class: "btn btn-success", data: { toggle: "modal", target: "#exampleModal" } %>
@@ -77,6 +80,7 @@
         <div class="btn btn-group">
           <%= link_to 'Post another painting', "#", class: "btn btn-outline-dark" %>
         </div>
+        <%# </div> %>
       </div>
     </div>
 
