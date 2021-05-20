@@ -8,6 +8,7 @@ class BookingsController < ApplicationController
   def create
     @art_piece = ArtPiece.find(params[:art_piece_id])
     @booking = Booking.new(whitelist)
+    @booking.status = "waiting"
     authorize @booking
     @booking.art_piece = @art_piece
     @booking.user = current_user
@@ -24,10 +25,12 @@ class BookingsController < ApplicationController
   def edit
   end
 
-  def update
+  def accept
+    @booking = Booking.find(params[:id])
+    @booking.update(status:'accepted')
   end
 
-  def destroy
+  def declined
   end
 
   def show

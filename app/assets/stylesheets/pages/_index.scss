@@ -3,8 +3,8 @@
 @import "show";
 
 .art-pieces-container {
-  margin: 0 auto;
   padding: 16px 0;
+  width : 80%
 }
 
 .art-pieces-container h1 {
@@ -16,6 +16,3 @@
   object-position: top;
 }
 
-.show-container{
-  height: 100vh
-}
