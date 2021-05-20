@@ -1,9 +1,18 @@
 div.form-group {
-    z-index:10;
-    width: 40%;
-    top:10%;
-    left:32%;
-    right:32%;
-    bottom:45%;
-    background-color: none;
+  z-index:10;
+  width: 40%;
+  top:10%;
+  left:32%;
+  right:32%;
+  bottom:45%;
+  background-color: none;
 }
+
+i.fas.fa-search {
+    color: white;
+}
+
+button.btn.btn-default {
+    border-color: white;
+}
+
