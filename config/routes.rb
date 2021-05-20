@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   end
   resources :reviews, only: :destroy
 
-  resources :bookings, only: [:edit, :update, :destroy, :show]
+  resources :bookings, only: [:edit, :show]
+    patch "dashboard", to: "bookings#accept"
 
   resources :dashboards, only: :index
 end

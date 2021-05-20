@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2021_05_20_135600) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "status"
     t.index ["art_piece_id"], name: "index_bookings_on_art_piece_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
