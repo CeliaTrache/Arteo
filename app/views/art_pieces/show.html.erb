@@ -1,4 +1,4 @@
-<div class="show-container" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "art_gallery_3.jpg", height: 100, crop: :fill %>')">
+<div class="show-container">
   <div class="art-piece-container">
     <h2><%= @art_piece.title %> <span class="artist">• <%= @art_piece.artist %> • </span><span class="size"><%= @art_piece.size %></span></h2>
     <img src="<%= @art_piece.picture %>"/>
@@ -7,7 +7,6 @@
         <p>Description : <%= @art_piece.description %></p>
         <p>Category : <%= @art_piece.category %></p>
         <p>Painting Technique : <%= @art_piece.painting_technic %></p>
-        <p></p>
       </div>
       <h2 class="art-piece-pricing" data-price="<%= @art_piece.unit_price %>"><%= @art_piece.unit_price %>€/day</h2>
     </div>
