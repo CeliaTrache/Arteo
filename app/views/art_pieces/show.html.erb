@@ -18,7 +18,7 @@
             <p><strong>Category</strong></p>
             <p><%= @art_piece.category %></p>
           </div>
-        </div>  
+        </div>
         <div class="caracteristics mt-3">
           <i class="fas fa-paint-brush mr-3"></i>
           <div class="text">
@@ -60,5 +60,5 @@
   </div>
 </div>
 
+<%= link_to 'Leave a review', new_art_piece_review_path(@art_piece) %>
 
-<%=link_to "accept", dashboard_path, method: :patch%>
