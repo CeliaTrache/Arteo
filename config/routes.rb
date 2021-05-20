@@ -6,8 +6,9 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create]
   end
 
-  resources :bookings, only: [:edit, :show]
-    patch "dashboard", to: "bookings#accept"
-
+  resources :bookings, only: [:edit, :show] do
+    patch "accept", to: "bookings#accept"
+    patch "decline", to: "bookings#declined"
+  end
   resources :dashboards, only: :index
 end

@@ -64,10 +64,10 @@
               </div>
               <div class="card-statut">
                 <div class="btn btn-group">
-                  <%# <%= link_to 'Accept', dashboard_path, method: :patch, class: "btn btn-outline-success" %> %>
+                  <%= link_to 'Accept', booking_accept_path(booking), method: :patch, class: "btn btn-outline-success" %>
                 </div>
                 <div class="btn btn-group">
-                  <%# <%= link_to 'Decline', dashboard_path, method: :patch, class: "btn btn-outline-danger" %> %>
+                  <%= link_to 'Decline', booking_decline_path(booking), method: :patch, class: "btn btn-outline-danger" %>
                 </div>
                   <%# <%= simple_form_for [ @art_piece, @booking ] do |f| %>
                     <%# <%= f.button :submit, "Accept", class: "btn btn-success", data: { toggle: "modal", target: "#exampleModal" } %>

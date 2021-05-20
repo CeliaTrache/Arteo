@@ -31,6 +31,7 @@ import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { loadDynamicCarouselText } from '../components/carousel';
 import { initUpdateDashboardOnClick } from '../components/dashboard';
 import { initFlatpickr } from "../plugins/flatpickr";
+import { buttonDisappear } from "../components/decline";
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -40,6 +41,7 @@ document.addEventListener('turbolinks:load', () => {
   initUpdateNavbarOnScroll();
   loadDynamicCarouselText();
   initUpdateDashboardOnClick();
+  buttonDisappear();
 });
 
 
