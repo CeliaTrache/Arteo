@@ -19,13 +19,13 @@ const updatePrice = (start_date, end_date) => {
 const initFlatpickr = () => {
   let start_date;
   let end_date;
-  const flat1 = flatpickr(".datepicker1", {
+  const flat1 = flatpickr("#datepicker1", {
     onChange: function(selectedDates, dateStr, instance) {
       start_date = selectedDates[0]
       updatePrice(start_date, end_date)
     },
   });
-  const flat2 = flatpickr(".datepicker2", {
+  const flat2 = flatpickr("#datepicker2", {
     onChange: function(selectedDates, dateStr, instance) {
       end_date = selectedDates[0]
       updatePrice(start_date, end_date)
