@@ -27,7 +27,7 @@
               <h2><%= link_to booking.art_piece.title, art_piece_path(booking.art_piece.id) %></h2>
             </div>
             <div class="card-dates">
-              <p>dates</p>
+              <p><%= booking.start_time.strftime('%a, %d, %b') %> - <%= booking.end_time.strftime('%a, %d, %b') %></p>
             </div>
             <div class="card-price">
               <p><%= booking.price %> €</p>
