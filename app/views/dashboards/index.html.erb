@@ -1,28 +1,44 @@
-<div class="show-container" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "art_gallery_3.jpg", crop: :fill %>')">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-8 p-5">
-        <%# <h1>My Bookings</h1> %>
+<div class="show-container dashboard" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "art_gallery_3.jpg", crop: :fill %>')">
+
+  <div class="dashboard-container">
+
+    <div class="dashboard-tab">
+      <ul class="list-inline tabs-underlined">
+        <li>
+          <a href="" class="tab-underlined active" data-order="0">My Bookings</a>
+        </li>
+        <li>
+          <a href="" class="tab-underlined" data-order="1">My Collection</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="content bookings active">
+      <div class="content-infos">
+        <%# <div class="col-8 p-5"> %>
+          <%# <h1>My Bookings</h1> %>
         <% @bookings.each do |booking| %>
         <ul class="dashboard-card">
         <div class="card-product">
           <img src="<%= booking.art_piece.picture %>"
           <div class="card-product-infos">
             <h2><%= link_to booking.art_piece.title, art_piece_path(booking.art_piece.id) %></h2>
-            <p class="price"><%= booking.price %></p>
+            <p class="date">dates</p>
+            <p class="price"><%= booking.price %> €</p>
+            <p class="statut">statut</p>
           </div>
         </ul>
         <% end %>
+        <%# </div> %>
+      </div>
+      <div class="btn btn-group">
+        <%= link_to 'Book another painting', art_pieces_path, class: "btn btn-primary" %>
       </div>
     </div>
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-6 p-5">
-        <div class="btn-group">
-          <%= link_to 'View all paintings', art_pieces_path, class: "btn btn-primary" %>
-        </div>
-      </div>
+
+    <div class="content collection">
+
     </div>
+
   </div>
-</div>
 </div>
