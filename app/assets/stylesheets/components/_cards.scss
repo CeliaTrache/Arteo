@@ -75,7 +75,6 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
-  justify-content: space-between;
   padding: 0 32px 0 16px;
 }
 
@@ -83,7 +82,7 @@
 .card-product img {
   height: 100%;
   width: 120px;
-  object-fit: cover;
+  // object-fit: cover;
 }
 
 .card-product h2 {
@@ -91,7 +90,7 @@
   font-weight: bold;
   margin: 0;
   color: black;
-  &h2:hover {
+  a:hover {
     text-decoration: none;
   }
 }
@@ -107,8 +106,28 @@
   color: black;
 }
 
-.card-product .card-product-infos {
-  padding: 16px;
+// .card-product .card-product-infos {
+//   padding: 16px;
+// }
+
+.card-image {
+  width: 15%;
+}
+
+.card-title {
+  width: 30%;
+}
+
+.card-dates {
+  width: 25%;
+}
+
+.card-price {
+  width: 15%;
+}
+
+.card-statut {
+  width: 15%;
 }
 
 .dashboard-card {

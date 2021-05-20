@@ -13,32 +13,73 @@
       </ul>
     </div>
 
-    <div class="content bookings active">
-      <div class="content-infos">
-        <%# <div class="col-8 p-5"> %>
-          <%# <h1>My Bookings</h1> %>
-        <% @bookings.each do |booking| %>
-        <ul class="dashboard-card">
-        <div class="card-product">
-          <img src="<%= booking.art_piece.picture %>"
-          <div class="card-product-infos">
-            <h2><%= link_to booking.art_piece.title, art_piece_path(booking.art_piece.id) %></h2>
-            <p class="date">dates</p>
-            <p class="price"><%= booking.price %> €</p>
-            <p class="statut">statut</p>
-          </div>
-        </ul>
-        <% end %>
-        <%# </div> %>
+    <div class="contents">
+      <div class="content bookings">
+        <div class="content-infos">
+          <% @bookings.each do |booking| %>
+          <ul class="dashboard-card">
+          <div class="card-product">
+            <div class="card-image">
+              <img src="<%= booking.art_piece.picture %>">
+            </div>
+            <div class="card-title">
+              <h2><%= link_to booking.art_piece.title, art_piece_path(booking.art_piece.id) %></h2>
+            </div>
+            <div class="card-dates">
+              <p>dates</p>
+            </div>
+            <div class="card-price">
+              <p><%= booking.price %> €</p>
+            </div>
+            <div class="card-statut">
+              <p>statut</p>
+            </div>
+          </ul>
+          <% end %>
+        </div>
+        <div class="btn btn-group">
+          <%= link_to 'Book another painting', art_pieces_path, class: "btn btn-outline-dark" %>
+        </div>
       </div>
-      <div class="btn btn-group">
-        <%= link_to 'Book another painting', art_pieces_path, class: "btn btn-primary" %>
+
+      <div class="content collection inactive">
+        <div class="content-infos">
+          <% @bookings.each do |booking| %>
+          <ul class="dashboard-card">
+            <div class="card-product">
+              <div class="card-image">
+                <img src="<%= booking.art_piece.picture %>">
+              </div>
+              <div class="card-title">
+                <h2><%= link_to booking.art_piece.title, art_piece_path(booking.art_piece.id) %></h2>
+              </div>
+              <div class="card-dates">
+                <p>dates</p>
+              </div>
+              <div class="card-price">
+                <p><%= booking.price %> €</p>
+              </div>
+              <div class="card-statut">
+                <div class="btn btn-group">
+                  <%= link_to 'Accept', "#", class: "btn btn-outline-success" %>
+                </div>
+                <div class="btn btn-group">
+                  <%= link_to 'Decline', "#", class: "btn btn-outline-danger" %>
+                </div>
+                  <%# <%= simple_form_for [ @art_piece, @booking ] do |f| %>
+                    <%# <%= f.button :submit, "Accept", class: "btn btn-success", data: { toggle: "modal", target: "#exampleModal" } %>
+                  <%# <% end %>
+              </div>
+            </div>
+          </ul>
+          <% end %>
+        </div>
+        <div class="btn btn-group">
+          <%= link_to 'Post another painting', "#", class: "btn btn-outline-dark" %>
+        </div>
       </div>
     </div>
 
-    <div class="content collection">
-
-    </div>
 
   </div>
 </div>

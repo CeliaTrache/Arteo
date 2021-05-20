@@ -10,9 +10,9 @@ const initUpdateDashboardOnClick = () => {
           tabInactive.classList.remove('active');
           const contentActive = contents[tab.dataset.order];
           const contentInactive = contents[tabInactive.dataset.order];
-          contentInactive.classList.remove('active');
+          contentInactive.classList.add('inactive');
           tab.classList.add('active');
-          contentActive.classList.add('active');
+          contentActive.classList.remove('inactive');
           console.log(tab);
           console.log(tabInactive);
           console.log(contentActive);
@@ -23,9 +23,9 @@ const initUpdateDashboardOnClick = () => {
           tabInactive.classList.remove('active');
           const contentActive = contents[tab.dataset.order];
           const contentInactive = contents[tabInactive.dataset.order];
-          contentInactive.classList.remove('active');
+          contentInactive.classList.add('inactive');
           tab.classList.add('active');
-          contentActive.classList.add('active');
+          contentActive.classList.remove('inactive');
           console.log(tab);
           console.log(tabInactive);
           console.log(contentActive);
