@@ -7,7 +7,11 @@
     <div class="cards mb-4">
       <% @art_pieces.each do |art_piece| %>
         <div class="card-art-pieces">
-          <img src=<%= art_piece.picture %> />
+          <% if art_piece.picture.nil? %>
+            <%= cl_image_tag art_piece.photo.key, height: 250, width: 276, crop: :fill %>
+          <% else %>
+            <img src="<%= art_piece.picture %>">
+          <% end %>
           <div class="card-art-pieces-infos">
             <div class="card-art-pieces-infos-details">
               <h2><%= art_piece.title %> <span>• <%= art_piece.artist %></span></h2>
