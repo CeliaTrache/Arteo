@@ -2,13 +2,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  min-height:calc(100vh - 182px);
 }
 
 .dashboard-container {
   background-color: white;
+  border-radius: 6px;
   width: 80%;
   height: 80%;
   padding: 32px;
+  margin: 32px;
 }
 
 .content {
@@ -21,6 +25,10 @@
 }
 
 .content.inactive {
+  display: none
+}
+
+.message.inactive {
   display: none
 }
 
@@ -48,3 +56,6 @@
   border-bottom: 3px solid #555555;
 }
 
+.accept-decline {
+  width: 150px;
+}
