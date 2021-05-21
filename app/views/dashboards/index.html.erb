@@ -70,10 +70,10 @@
                   <p><%= booking.price %> €</p>
                 </div>
                 <div class="card-statut">
-                  <div class="btn btn-group">
+                  <div class="btn btn-group accept-decline">
                     <%= link_to 'Accept', dashboard_path, method: :patch, class: "btn btn-outline-success" %>
                   </div>
-                  <div class="btn btn-group">
+                  <div class="btn btn-group accept-decline">
                     <%= link_to 'Decline', dashboard_path, method: :patch, class: "btn btn-outline-danger" %>
                   </div>
                 </div>
