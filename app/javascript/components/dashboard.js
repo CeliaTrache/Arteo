@@ -46,21 +46,17 @@ const displayMessageIfDashboardIsEmpty = () => {
         message.classList.add('inactive');
       }
     });
-    // console.log(message.innerText);
   }
 }
 
 const preventDefaultOnClick = () => {
   const buttons = document.querySelectorAll('.accept-decline');
-  const cardStatus = document.querySelector('.card-statut');
-  const accept = "<div class=\"btn btn-outline - success accept - decline\"><p> Booking accepté</p></div >";
-  const decline = "<div class=\"btn btn-outline - danger accept - decline\"<p> Booking refusé</p></div >";
-  // console.log(buttons);
+  const accept = "<div class='btn btn-outline-success accept-decline'><p>Booking accepté</p></div >";
+  const decline = "<div class='btn btn-outline-danger accept-decline'<p>Booking refusé</p></div >";
   if (buttons) {
     buttons.forEach((button) => {
+      const cardStatus = button.closest('.card-statut');
       button.addEventListener('click', (event) => {
-        // console.log(event);
-        // event.preventDefault();
         if (button.dataset.status == "accept") {
           cardStatus.innerHTML = accept;
         }
