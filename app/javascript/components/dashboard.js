@@ -37,14 +37,15 @@ const initUpdateDashboardOnClick = () => {
 }
 
 const displayMessageIfDashboardIsEmpty = () => {
-  console.log('Hello');
+  // console.log('Hello');
   const messages = document.querySelectorAll('.message');
-  console.log(messages);
+  // console.log(messages);
   messages.forEach((message) => {
-    if (message.innerText == "") {
+    if (message.innerText === "") {
       message.classList.add('inactive');
     }
-  })
+    // console.log(message.innerText);
+  });
 }
 
 export { initUpdateDashboardOnClick, displayMessageIfDashboardIsEmpty };
