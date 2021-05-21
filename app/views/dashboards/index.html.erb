@@ -62,6 +62,7 @@
               <div class="card-price">
                 <p><%= booking.price %> €</p>
               </div>
+              <% if booking.status == "waiting"%>
               <div class="card-statut">
                 <div class="btn btn-group">
                   <%= link_to 'Accept', booking_accept_path(booking), method: :patch, class: "btn btn-outline-success" %>
@@ -69,6 +70,15 @@
                 <div class="btn btn-group">
                   <%= link_to 'Decline', booking_decline_path(booking), method: :patch, class: "btn btn-outline-danger" %>
                 </div>
+                <% elsif booking.status == "validate" %>
+                <div class="btn btn-outline-success">
+                  <p>Booking accepté</p>
+                </div>
+                <% elsif booking.status == "decline" %>
+                <div class="btn btn-outline-danger">
+                  <p>Booking refusé</p>
+                </div>
+              <%end%>
                   <%# <%= simple_form_for [ @art_piece, @booking ] do |f| %>
                     <%# <%= f.button :submit, "Accept", class: "btn btn-success", data: { toggle: "modal", target: "#exampleModal" } %>
                   <%# <% end %>
