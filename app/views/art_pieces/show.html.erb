@@ -2,7 +2,11 @@
   <div class="art-piece-container">
     <h2><%= @art_piece.title %><h2>
     <h3><%= @art_piece.artist %> • <span class="size"><%= @art_piece.size %></span></h3>
-    <img src="<%= @art_piece.picture %>"/>
+    <% if @art_piece.picture.nil? %>
+      <%= cl_image_tag @art_piece.photo.key, height: 250, width: 276, crop: :fill %>
+    <% else %>
+      <img src="<%= @art_piece.picture %>">
+    <% end %>
     <div class="art-piece-infos">
       <div>
         <div class="caracteristics mt-4">

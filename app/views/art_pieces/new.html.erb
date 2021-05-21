@@ -1,0 +1,14 @@
+<div class="container">
+  <h2 class="mb-4">Rent out your art piece !</h2>
+  <%= simple_form_for @art_piece do |f| %>
+    <%= f.input :title, as: :string, required: true %>
+    <%= f.input :artist, as: :string, required: true %>
+    <%= f.input :description, as: :string, required: true %>
+    <%= f.input :category, as: :string, required: true, collection: ["Abstract", "Classicism", "Impressionism", "Street Art"] %>
+    <%= f.input :painting_technic, as: :string, required: true, collection: ["Peinture à l'huile", "Fresque", "Peinture au pochoir"] %>
+    <%= f.input :size, as: :string, required: true %>
+    <%= f.input :unit_price, as: :integer, required: true %>
+    <%= f.input :photo, as: :file %>
+    <%= f.button :submit, "Publish", class: "btn btn-primary" %>
+  <% end %>
+</div>
