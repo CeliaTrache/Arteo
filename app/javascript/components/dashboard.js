@@ -41,7 +41,7 @@ const displayMessageIfDashboardIsEmpty = () => {
   const messages = document.querySelectorAll('.message');
   // console.log(messages);
   messages.forEach((message) => {
-    if (message.innerText === "") {
+    if (message.innerText.replace(/^\s+|\s+$/g, '') === "") {
       message.classList.add('inactive');
     }
     // console.log(message.innerText);
