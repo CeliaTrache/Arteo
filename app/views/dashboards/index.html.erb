@@ -14,83 +14,79 @@
     </div>
 
     <div class="contents">
-      <%# <div class="flex-card"> %>
       <div class="content bookings">
         <div class="container mb-5">
           <div class="d-flex justify-content-between my-4">
             <span class="mb-2 d-block"><small><em class="text-muted"><%= "You haven't saved any paintings yet!" if @bookings.empty? %></em></small></span>
+          </div>
+        </div>
+        <div class="content-infos">
+          <% @bookings.each do |booking| %>
+            <ul class="dashboard-card">
+              <div class="card-product">
+                <div class="card-image">
+                  <img src="<%= booking.art_piece.picture %>">
+                </div>
+                <div class="card-title">
+                  <h2><%= link_to booking.art_piece.title, art_piece_path(booking.art_piece.id) %></h2>
+                </div>
+                <div class="card-dates">
+                  <p><%= booking.start_time.strftime('%a, %d, %b') %> - <%= booking.end_time.strftime('%a, %d, %b') %></p>
+                </div>
+                <div class="card-price">
+                  <p><%= booking.price %> €</p>
+                </div>
+                <div class="card-statut">
+                  <p><%= booking.status %></p>
+                </div>
+              </ul>
+          <% end %>
+        </div>
+        <div class="btn btn-group">
+          <%= link_to 'Book another painting', art_pieces_path, class: "btn btn-outline-dark" %>
+        </div>
+      </div>
+
+      <div class="content collection inactive">
+        <div class="container mb-5">
+          <div class="d-flex justify-content-between my-4">
+            <span class="mb-2 d-block"><small><em class="text-muted"><%= "You haven't posted any paintings yet!" if @bookings.empty? %></em></small></span>
             </div>
           </div>
           <div class="content-infos">
-            <% @bookings.each do |booking| %>
+            <% @pending_bookings.each do |booking| %>
             <ul class="dashboard-card">
-            <div class="card-product">
-              <div class="card-image">
-                <img src="<%= booking.art_piece.picture %>">
-              </div>
-              <div class="card-title">
-                <h2><%= link_to booking.art_piece.title, art_piece_path(booking.art_piece.id) %></h2>
-              </div>
-              <div class="card-dates">
-                <p><%= booking.start_time.strftime('%a, %d, %b') %> - <%= booking.end_time.strftime('%a, %d, %b') %></p>
-              </div>
-              <div class="card-price">
-                <p><%= booking.price %> €</p>
-              </div>
-              <div class="card-statut">
-                <p><%= booking.status %></p>
+              <div class="card-product">
+                <div class="card-image">
+                  <img src="<%= booking.art_piece.picture %>">
+                </div>
+                <div class="card-title">
+                  <h2><%= link_to booking.art_piece.title, art_piece_path(booking.art_piece.id) %></h2>
+                </div>
+                <div class="card-dates">
+                  <p>dates</p>
+                </div>
+                <div class="card-price">
+                  <p><%= booking.price %> €</p>
+                </div>
+                <div class="card-statut">
+                  <div class="btn btn-group">
+                    <%= link_to 'Accept', dashboard_path, method: :patch, class: "btn btn-outline-success" %>
+                  </div>
+                  <div class="btn btn-group">
+                    <%= link_to 'Decline', dashboard_path, method: :patch, class: "btn btn-outline-danger" %>
+                  </div>
+                </div>
               </div>
             </ul>
             <% end %>
           </div>
           <div class="btn btn-group">
-            <%= link_to 'Book another painting', art_pieces_path, class: "btn btn-outline-dark" %>
-          </div>
-          <%# </div> %>
-        </div>
-
-        <div class="content collection inactive">
-          <%# <div class="flex-card"> %>
-          <div class="container mb-5">
-            <div class="d-flex justify-content-between my-4">
-              <span class="mb-2 d-block"><small><em class="text-muted"><%= "You haven't posted any paintings yet!" if @bookings.empty? %></em></small></span>
-              </div>
-            </div>
-            <div class="content-infos">
-              <% @bookings.each do |booking| %>
-              <ul class="dashboard-card">
-                <div class="card-product">
-                  <div class="card-image">
-                    <img src="<%= booking.art_piece.picture %>">
-                  </div>
-                  <div class="card-title">
-                    <h2><%= link_to booking.art_piece.title, art_piece_path(booking.art_piece.id) %></h2>
-                  </div>
-                  <div class="card-dates">
-                    <p>dates</p>
-                  </div>
-                  <div class="card-price">
-                    <p><%= booking.price %> €</p>
-                  </div>
-                  <div class="card-statut">
-                    <div class="btn btn-group">
-                      <%= link_to 'Accept', dashboard_path, method: :patch, class: "btn btn-outline-success" %>
-                    </div>
-                    <div class="btn btn-group">
-                      <%= link_to 'Decline', dashboard_path, method: :patch, class: "btn btn-outline-danger" %>
-                    </div>
-                  </div>
-                </div>
-              </ul>
-              <% end %>
-            </div>
-            <div class="btn btn-group">
-              <%= link_to 'Post another painting', "#", class: "btn btn-outline-dark" %>
-            </div>
-            <%# </div> %>
+            <%= link_to 'Post another painting', "#", class: "btn btn-outline-dark" %>
           </div>
         </div>
-
+      </div>
+    </div>
 
   </div>
 </div>
