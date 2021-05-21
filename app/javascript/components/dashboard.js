@@ -40,12 +40,36 @@ const displayMessageIfDashboardIsEmpty = () => {
   // console.log('Hello');
   const messages = document.querySelectorAll('.message');
   // console.log(messages);
-  messages.forEach((message) => {
-    if (message.innerText.replace(/^\s+|\s+$/g, '') === "") {
-      message.classList.add('inactive');
-    }
+  if (messages) {
+    messages.forEach((message) => {
+      if (message.innerText.replace(/^\s+|\s+$/g, '') === "") {
+        message.classList.add('inactive');
+      }
+    });
     // console.log(message.innerText);
-  });
+  }
 }
 
-export { initUpdateDashboardOnClick, displayMessageIfDashboardIsEmpty };
+const preventDefaultOnClick = () => {
+  const buttons = document.querySelectorAll('.accept-decline');
+  const cardStatus = document.querySelector('.card-statut');
+  const accept = "<div class=\"btn btn-outline - success accept - decline\"><p> Booking accepté</p></div >";
+  const decline = "<div class=\"btn btn-outline - danger accept - decline\"<p> Booking refusé</p></div >";
+  // console.log(buttons);
+  if (buttons) {
+    buttons.forEach((button) => {
+      button.addEventListener('click', (event) => {
+        // console.log(event);
+        // event.preventDefault();
+        if (button.dataset.status == "accept") {
+          cardStatus.innerHTML = accept;
+        }
+        else if (button.dataset.status == "decline") {
+          cardStatus.innerHTML = decline;
+        }
+      })
+    });
+  }
+}
+
+export { initUpdateDashboardOnClick, displayMessageIfDashboardIsEmpty, preventDefaultOnClick };
