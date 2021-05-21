@@ -36,4 +36,15 @@ const initUpdateDashboardOnClick = () => {
   }
 }
 
-export { initUpdateDashboardOnClick };
+const displayMessageIfDashboardIsEmpty = () => {
+  console.log('Hello');
+  const messages = document.querySelectorAll('.message');
+  console.log(messages);
+  messages.forEach((message) => {
+    if (message.innerText == "") {
+      message.classList.add('inactive');
+    }
+  })
+}
+
+export { initUpdateDashboardOnClick, displayMessageIfDashboardIsEmpty };

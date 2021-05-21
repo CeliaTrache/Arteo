@@ -29,7 +29,7 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { loadDynamicCarouselText } from '../components/carousel';
-import { initUpdateDashboardOnClick } from '../components/dashboard';
+import { initUpdateDashboardOnClick, displayMessageIfDashboardIsEmpty } from '../components/dashboard';
 import { initFlatpickr } from "../plugins/flatpickr";
 
 
@@ -40,6 +40,7 @@ document.addEventListener('turbolinks:load', () => {
   initUpdateNavbarOnScroll();
   loadDynamicCarouselText();
   initUpdateDashboardOnClick();
+  displayMessageIfDashboardIsEmpty();
 });
 
 
