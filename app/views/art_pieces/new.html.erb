@@ -5,8 +5,8 @@
       <%= f.input :title, as: :string, required: true %>
       <%= f.input :artist, as: :string, required: true %>
       <%= f.input :description, as: :string, required: true %>
-      <%= f.input :category, as: :string, required: true, collection: ["Abstract", "Classicism", "Impressionism", "Street Art"] %>
-      <%= f.input :painting_technic, as: :string, required: true, collection: ["Peinture à l'huile", "Fresque", "Peinture au pochoir"] %>
+      <%= f.input :category, as: :string, required: true %>
+      <%= f.input :painting_technic, as: :string, required: true %>
       <%= f.input :size, as: :string, required: true %>
       <%= f.input :unit_price, as: :integer, required: true %>
       <%= f.input :photo, as: :file %>
