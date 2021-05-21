@@ -1,60 +1,62 @@
-<div class="show-container">
-  <div class="art-piece-container">
-    <h2><%= @art_piece.title %><h2>
-    <h3><%= @art_piece.artist %> • <span class="size"><%= @art_piece.size %></span></h3>
-    <% if @art_piece.picture.nil? %>
-      <%= cl_image_tag @art_piece.photo.key, height: 250, width: 276, crop: :fill %>
-    <% else %>
-      <img src="<%= @art_piece.picture %>">
-    <% end %>
-    <div class="art-piece-infos">
-      <div>
-        <div class="caracteristics mt-4">
-          <i class="fas fa-quote-left mr-3"></i>
-          <div class="text">
-            <p><strong>Description</strong></p>
-            <p><%= @art_piece.description %></p>
+<div class="container-show" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "art_gallery_2.jpg", crop: :fill %>'); background-position: center">
+  <div class="show-container">
+    <div class="art-piece-container mt-4">
+      <h2><%= @art_piece.title %><h2>
+      <h3><%= @art_piece.artist %> • <span class="size"><%= @art_piece.size %></span></h3>
+      <% if @art_piece.picture.nil? %>
+        <%= cl_image_tag @art_piece.photo.key, height: 250, width: 276, crop: :fill %>
+      <% else %>
+        <img src="<%= @art_piece.picture %>">
+      <% end %>
+      <div class="art-piece-infos">
+        <div>
+          <div class="caracteristics mt-4">
+            <i class="fas fa-quote-left mr-3"></i>
+            <div class="text">
+              <p><strong>Description</strong></p>
+              <p><%= @art_piece.description %></p>
+            </div>
           </div>
-        </div>
-        <div class="caracteristics mt-3">
-          <i class="fas fa-sitemap mr-3"></i>
-          <div class="text">
-            <p><strong>Category</strong></p>
-            <p><%= @art_piece.category %></p>
+          <div class="caracteristics mt-3">
+            <i class="fas fa-sitemap mr-3"></i>
+            <div class="text">
+              <p><strong>Category</strong></p>
+              <p><%= @art_piece.category %></p>
+            </div>
           </div>
-        </div>
-        <div class="caracteristics mt-3">
-          <i class="fas fa-paint-brush mr-3"></i>
-          <div class="text">
-            <p><strong>Painting Technique</strong></p>
-            <p><%= @art_piece.painting_technic %></p>
+          <div class="caracteristics mt-3">
+            <i class="fas fa-paint-brush mr-3"></i>
+            <div class="text">
+              <p><strong>Painting Technique</strong></p>
+              <p><%= @art_piece.painting_technic %></p>
+            </div>
           </div>
+          <h3 class="art-piece-pricing" data-price="<%= @art_piece.unit_price %>"><%= @art_piece.unit_price %>€/day</h3>
         </div>
-        <h3 class="art-piece-pricing" data-price="<%= @art_piece.unit_price %>"><%= @art_piece.unit_price %>€/day</h3>
       </div>
     </div>
-  </div>
-  <div class="booking-form">
-    <div class="container">
-      <div class="form-wrapper">
-        <h2 class="mb-4">Book this art piece</h2>
-        <%= simple_form_for [ @art_piece, @booking ] do |f| %>
-          <%= f.input :start_time, as: :string, required: false, input_html: {id: "datepicker1"} %>
-          <%= f.input :end_time, as: :string, required: false, input_html: {id: "datepicker2"} %>
-          <%= f.button :submit, "Book", class: "btn btn-primary", data: { toggle: "modal", target: "#exampleModal" } %>
-        <% end %>
-        <div class="price mt-3"></div>
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Booking Confirmed !</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    <div class="booking-form ml-3 mt-4" >
+      <div class="container">
+        <div class="form-wrapper">
+          <h2 class="mb-4">Book this art piece</h2>
+          <%= simple_form_for [ @art_piece, @booking ] do |f| %>
+            <%= f.input :start_time, as: :string, required: false, input_html: {id: "datepicker1"} %>
+            <%= f.input :end_time, as: :string, required: false, input_html: {id: "datepicker2"} %>
+            <%= f.button :submit, "Book", class: "btn btn-primary", data: { toggle: "modal", target: "#exampleModal" } %>
+          <% end %>
+          <div class="price mt-3"></div>
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Booking Confirmed !</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
               </div>
             </div>
           </div>
@@ -62,7 +64,5 @@
       </div>
     </div>
   </div>
+  <%= link_to 'Leave a review', new_art_piece_review_path(@art_piece) %>
 </div>
-
-<%= link_to 'Leave a review', new_art_piece_review_path(@art_piece) %>
-
