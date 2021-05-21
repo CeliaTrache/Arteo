@@ -71,18 +71,18 @@
                 </div>
                 <div class="card-statut">
                   <% if booking.status == "waiting"%>
-                    <div class="btn btn-group accept-decline">
-                      <%= link_to 'Accept', booking_accept_path(booking), method: :patch, class: "btn btn-outline-success" %>
+                    <div class="btn btn-group accept-decline" data-status="accept">
+                      <%= link_to 'Accept', booking_accept_path(booking), remote: true, method: :patch, class: "btn btn-outline-success" %>
                     </div>
-                    <div class="btn btn-group accept-decline">
-                      <%= link_to 'Decline', booking_decline_path(booking), method: :patch, class: "btn btn-outline-danger" %>
+                    <div class="btn btn-group accept-decline" data-status="decline">
+                      <%= link_to 'Decline', booking_decline_path(booking), remote: true, method: :patch, class: "btn btn-outline-danger" %>
                     </div>
                   <% elsif booking.status == "validate" %>
-                    <div class="btn btn-outline-success">
+                    <div class="btn btn-outline-success accept-decline">
                       <p>Booking accepté</p>
                     </div>
                   <% elsif booking.status == "decline" %>
-                    <div class="btn btn-outline-danger">
+                    <div class="btn btn-outline-danger accept-decline">
                       <p>Booking refusé</p>
                     </div>
                   <%end%>
