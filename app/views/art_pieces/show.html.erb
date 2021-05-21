@@ -29,22 +29,11 @@
         <h3 class="art-piece-pricing" data-price="<%= @art_piece.unit_price %>"><%= @art_piece.unit_price %>€/day</h3>
       </div>
     </div>
-    <div class="review-form">
-      <div class="container">
-        <div class="form-wrapper">
-          <h2 class="mb-4">Leave a comment</h2>
-          <%= simple_form_for [ @art_piece, @review ] do |f| %>
-          <%= f.input :rating %>
-            <%= f.input :content, placeholder: 'Comment'%>
-            <%= f.button :submit, "Comment", class: "btn btn-outline-primary" %>
-          <% end %>
-        </div>
-      </div>
-    </div>
+
   </div>
   <div class="booking-form">
-    <div class="container">
-      <div class="form-wrapper">
+
+      <div class="form-wrapper reservation-form">
         <h2 class="mb-4">Book this art piece</h2>
         <%= simple_form_for [ @art_piece, @booking ] do |f| %>
           <%= f.input :start_time, as: :string, required: false, input_html: {id: "datepicker1"} %>
@@ -67,10 +56,28 @@
             </div>
           </div>
         </div>
+    </div>
+
+        <div class="review-form">
+          <h3><%= pluralize @art_piece.reviews.size, "review" %></h3>
+          <div id="reviews">
+            <% if @art_piece.reviews.blank? %>
+              <p><em> Be the first to leave a review </em></p>
+            <% else %>
+              <% @art_piece.reviews.each do |review| %>
+              <p><%= review.content %></p>
+            <% end %>
+          <% end %>
+          </div>
+        <div class="form-wrapper">
+          <%= simple_form_for [ @art_piece, @review ] do |f| %>
+          <%= f.input :rating, input_html: { style: 'width: 50%' } %>
+          <%= f.input :content, placeholder: 'Leave your review', label: false, input_html: { style: 'width: 300px' } %>
+          <%= f.button :submit, "Comment", class: "btn btn-outline-primary" %>
+          <% end %>
       </div>
+
     </div>
   </div>
 </div>
 
-
-<%= link_to 'Leave a review', new_art_piece_review_path(@art_piece) %>
