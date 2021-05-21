@@ -25,7 +25,11 @@
             <ul class="dashboard-card">
               <div class="card-product">
                 <div class="card-image">
-                  <img src="<%= booking.art_piece.picture %>">
+                  <% if booking.art_piece.picture.nil? %>
+                    <%= cl_image_tag booking.art_piece.photo.key, height: 178, width: 120, crop: :fill %>
+                  <% else %>
+                    <img src="<%= booking.art_piece.picture %>">
+                  <% end %>
                 </div>
                 <div class="card-title">
                   <h2><%= link_to booking.art_piece.title, art_piece_path(booking.art_piece.id) %></h2>
@@ -58,31 +62,35 @@
             <ul class="dashboard-card">
               <div class="card-product">
                 <div class="card-image">
-                  <img src="<%= booking.art_piece.picture %>">
+                  <% if booking.art_piece.picture.nil? %>
+                    <%= cl_image_tag booking.art_piece.photo.key, height: 178, width: 120, crop: :fill %>
+                  <% else %>
+                    <img src="<%= booking.art_piece.picture %>">
+                  <% end %>
                 </div>
                 <div class="card-title">
                   <h2><%= link_to booking.art_piece.title, art_piece_path(booking.art_piece.id) %></h2>
                 </div>
                 <div class="card-dates">
-                  <p>dates</p>
+                  <p><%= booking.start_time.strftime('%a, %d, %b') %> - <%= booking.end_time.strftime('%a, %d, %b') %></p>
                 </div>
                 <div class="card-price">
                   <p><%= booking.price %> €</p>
                 </div>
                 <div class="card-statut">
                   <% if booking.status == "waiting"%>
-                    <div class="btn btn-group accept-decline">
-                      <%= link_to 'Accept', booking_accept_path(booking), method: :patch, class: "btn btn-outline-success" %>
+                    <div class="btn btn-group accept-decline" data-status="accept">
+                      <%= link_to 'Accept', booking_accept_path(booking), remote: true, method: :patch, class: "btn btn-outline-success" %>
                     </div>
-                    <div class="btn btn-group accept-decline">
-                      <%= link_to 'Decline', booking_decline_path(booking), method: :patch, class: "btn btn-outline-danger" %>
+                    <div class="btn btn-group accept-decline" data-status="decline">
+                      <%= link_to 'Decline', booking_decline_path(booking), remote: true, method: :patch, class: "btn btn-outline-danger" %>
                     </div>
                   <% elsif booking.status == "validate" %>
-                    <div class="btn btn-outline-success">
+                    <div class="btn btn-outline-success accept-decline">
                       <p>Booking accepté</p>
                     </div>
                   <% elsif booking.status == "decline" %>
-                    <div class="btn btn-outline-danger">
+                    <div class="btn btn-outline-danger accept-decline">
                       <p>Booking refusé</p>
                     </div>
                   <%end%>
@@ -92,7 +100,7 @@
           <% end %>
         </div>
         <div class="btn btn-group">
-          <%= link_to 'Post another painting', "#", class: "btn btn-outline-dark" %>
+          <%= link_to 'Post another painting', new_art_piece_path, class: "btn btn-outline-dark" %>
         </div>
       </div>
     </div>
