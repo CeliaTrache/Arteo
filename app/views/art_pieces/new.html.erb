@@ -1,0 +1,16 @@
+<div class="container-new" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "art_gallery_2.jpg", crop: :fill %>'); background-position: center">
+  <div class="container">
+    <h2 class="mb-4">Rent out your art piece !</h2>
+    <%= simple_form_for @art_piece do |f| %>
+      <%= f.input :title, as: :string, required: true %>
+      <%= f.input :artist, as: :string, required: true %>
+      <%= f.input :description, as: :string, required: true %>
+      <%= f.input :category, as: :string, required: true %>
+      <%= f.input :painting_technic, as: :string, required: true %>
+      <%= f.input :size, as: :string, required: true %>
+      <%= f.input :unit_price, as: :integer, required: true %>
+      <%= f.input :photo, as: :file %>
+      <%= f.button :submit, "Publish", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

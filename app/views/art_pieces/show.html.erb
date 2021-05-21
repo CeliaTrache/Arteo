@@ -1,37 +1,41 @@
-<div class="show-container">
-  <div class="art-piece-container">
-    <h2><%= @art_piece.title %><h2>
-    <h3><%= @art_piece.artist %> • <span class="size"><%= @art_piece.size %></span></h3>
-    <img src="<%= @art_piece.picture %>"/>
-    <div class="art-piece-infos">
-      <div>
-        <div class="caracteristics mt-4">
-          <i class="fas fa-quote-left mr-3"></i>
-          <div class="text">
-            <p><strong>Description</strong></p>
-            <p><%= @art_piece.description %></p>
+<div class="container-show" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "art_gallery_2.jpg", crop: :fill %>'); background-position: center">
+  <div class="show-container">
+    <div class="art-piece-container mt-4">
+      <h2><%= @art_piece.title %><h2>
+      <h3><%= @art_piece.artist %> • <span class="size"><%= @art_piece.size %></span></h3>
+      <% if @art_piece.picture.nil? %>
+        <%= cl_image_tag @art_piece.photo.key, height: 250, width: 276, crop: :fill %>
+      <% else %>
+        <img src="<%= @art_piece.picture %>">
+      <% end %>
+      <div class="art-piece-infos">
+        <div>
+          <div class="caracteristics mt-4">
+            <i class="fas fa-quote-left mr-3"></i>
+            <div class="text">
+              <p><strong>Description</strong></p>
+              <p><%= @art_piece.description %></p>
+            </div>
           </div>
-        </div>
-        <div class="caracteristics mt-3">
-          <i class="fas fa-sitemap mr-3"></i>
-          <div class="text">
-            <p><strong>Category</strong></p>
-            <p><%= @art_piece.category %></p>
+          <div class="caracteristics mt-3">
+            <i class="fas fa-sitemap mr-3"></i>
+            <div class="text">
+              <p><strong>Category</strong></p>
+              <p><%= @art_piece.category %></p>
+            </div>
           </div>
-        </div>
-        <div class="caracteristics mt-3">
-          <i class="fas fa-paint-brush mr-3"></i>
-          <div class="text">
-            <p><strong>Painting Technique</strong></p>
-            <p><%= @art_piece.painting_technic %></p>
+          <div class="caracteristics mt-3">
+            <i class="fas fa-paint-brush mr-3"></i>
+            <div class="text">
+              <p><strong>Painting Technique</strong></p>
+              <p><%= @art_piece.painting_technic %></p>
+            </div>
           </div>
+          <h3 class="art-piece-pricing" data-price="<%= @art_piece.unit_price %>"><%= @art_piece.unit_price %>€/day</h3>
         </div>
-        <h3 class="art-piece-pricing" data-price="<%= @art_piece.unit_price %>"><%= @art_piece.unit_price %>€/day</h3>
       </div>
     </div>
-
-  </div>
-  <div class="booking-form">
+    <div class="booking-form">
 
       <div class="form-wrapper reservation-form">
         <h2 class="mb-4">Book this art piece</h2>
@@ -56,28 +60,27 @@
             </div>
           </div>
         </div>
-    </div>
+      </div>
 
-        <div class="review-form">
-          <h3><%= pluralize @art_piece.reviews.size, "review" %></h3>
-          <div id="reviews">
-            <% if @art_piece.reviews.blank? %>
-              <p><em> Be the first to leave a review </em></p>
-            <% else %>
-              <% @art_piece.reviews.each do |review| %>
-              <p><%= review.content %></p>
-            <% end %>
+      <div class="review-form">
+        <h3><%= pluralize @art_piece.reviews.size, "review" %></h3>
+        <div id="reviews">
+          <% if @art_piece.reviews.blank? %>
+            <p><em> Be the first to leave a review </em></p>
+          <% else %>
+            <% @art_piece.reviews.each do |review| %>
+            <p><%= review.content %></p>
           <% end %>
-          </div>
+        <% end %>
+        </div>
         <div class="form-wrapper">
           <%= simple_form_for [ @art_piece, @review ] do |f| %>
           <%= f.input :rating, input_html: { style: 'width: 50%' } %>
           <%= f.input :content, placeholder: 'Leave your review', label: false, input_html: { style: 'width: 300px' } %>
           <%= f.button :submit, "Comment", class: "btn btn-outline-primary" %>
           <% end %>
+        </div>
       </div>
-
     </div>
   </div>
 </div>
-

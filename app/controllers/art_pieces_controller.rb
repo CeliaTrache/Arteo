@@ -19,8 +19,21 @@ class ArtPiecesController < ApplicationController
   end
 
   def new
+    @art_piece = ArtPiece.new
+    authorize @art_piece
   end
 
   def create
+    @art_piece = ArtPiece.new(whitelist)
+    authorize @art_piece
+    @art_piece.user = current_user
+    @art_piece.save
+    redirect_to art_pieces_path(current_user)
+  end
+
+  private
+
+  def whitelist
+    params.require(:art_piece).permit(:title, :artist, :description, :category, :painting_technic, :size, :unit_price, :photo)
   end
 end
