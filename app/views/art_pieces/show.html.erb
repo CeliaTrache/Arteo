@@ -1,6 +1,6 @@
 <div class="container-show" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "art_gallery_2.jpg", crop: :fill %>'); background-position: center">
   <div class="show-container">
-    <div class="art-piece-container mt-4">
+    <div class="art-piece-container mt-4 mb-4">
       <h2><%= @art_piece.title %><h2>
       <h3><%= @art_piece.artist %> • <span class="size"><%= @art_piece.size %></span></h3>
       <% if @art_piece.picture.nil? %>
@@ -35,7 +35,7 @@
         </div>
       </div>
     </div>
-    <div class="booking-form">
+    <div class="booking-form mt-4">
 
       <div class="form-wrapper reservation-form">
         <h2 class="mb-4">Book this art piece</h2>
