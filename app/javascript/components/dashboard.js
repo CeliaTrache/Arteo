@@ -13,10 +13,10 @@ const initUpdateDashboardOnClick = () => {
           contentInactive.classList.add('inactive');
           tab.classList.add('active');
           contentActive.classList.remove('inactive');
-          console.log(tab);
-          console.log(tabInactive);
-          console.log(contentActive);
-          console.log(contentInactive);
+          // console.log(tab);
+          // console.log(tabInactive);
+          // console.log(contentActive);
+          // console.log(contentInactive);
         }
         else {
           const tabInactive = tabs[0];
@@ -26,10 +26,10 @@ const initUpdateDashboardOnClick = () => {
           contentInactive.classList.add('inactive');
           tab.classList.add('active');
           contentActive.classList.remove('inactive');
-          console.log(tab);
-          console.log(tabInactive);
-          console.log(contentActive);
-          console.log(contentInactive);
+          // console.log(tab);
+          // console.log(tabInactive);
+          // console.log(contentActive);
+          // console.log(contentInactive);
         }
       });
     })
