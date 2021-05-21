@@ -25,7 +25,11 @@
             <ul class="dashboard-card">
               <div class="card-product">
                 <div class="card-image">
-                  <img src="<%= booking.art_piece.picture %>">
+                  <% if booking.art_piece.picture.nil? %>
+                    <%= cl_image_tag booking.art_piece.photo.key, height: 178, width: 120, crop: :fill %>
+                  <% else %>
+                    <img src="<%= booking.art_piece.picture %>">
+                  <% end %>
                 </div>
                 <div class="card-title">
                   <h2><%= link_to booking.art_piece.title, art_piece_path(booking.art_piece.id) %></h2>
@@ -58,13 +62,17 @@
             <ul class="dashboard-card">
               <div class="card-product">
                 <div class="card-image">
-                  <img src="<%= booking.art_piece.picture %>">
+                  <% if booking.art_piece.picture.nil? %>
+                    <%= cl_image_tag booking.art_piece.photo.key, height: 178, width: 120, crop: :fill %>
+                  <% else %>
+                    <img src="<%= booking.art_piece.picture %>">
+                  <% end %>
                 </div>
                 <div class="card-title">
                   <h2><%= link_to booking.art_piece.title, art_piece_path(booking.art_piece.id) %></h2>
                 </div>
                 <div class="card-dates">
-                  <p>dates</p>
+                  <p><%= booking.start_time.strftime('%a, %d, %b') %> - <%= booking.end_time.strftime('%a, %d, %b') %></p>
                 </div>
                 <div class="card-price">
                   <p><%= booking.price %> €</p>
