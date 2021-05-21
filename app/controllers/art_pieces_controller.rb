@@ -27,7 +27,7 @@ class ArtPiecesController < ApplicationController
     authorize @art_piece
     @art_piece.user = current_user
     @art_piece.save
-    redirect_to dashboards_path(current_user)
+    redirect_to art_pieces_path(current_user)
   end
 
   private
