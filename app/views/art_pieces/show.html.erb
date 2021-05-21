@@ -29,6 +29,18 @@
         <h3 class="art-piece-pricing" data-price="<%= @art_piece.unit_price %>"><%= @art_piece.unit_price %>€/day</h3>
       </div>
     </div>
+    <div class="review-form">
+      <div class="container">
+        <div class="form-wrapper">
+          <h2 class="mb-4">Leave a comment</h2>
+          <%= simple_form_for [ @art_piece, @review ] do |f| %>
+          <%= f.input :rating %>
+            <%= f.input :content, placeholder: 'Comment'%>
+            <%= f.button :submit, "Comment", class: "btn btn-outline-primary" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="booking-form">
     <div class="container">
@@ -60,5 +72,5 @@
   </div>
 </div>
 
-<%= link_to 'Leave a review', new_art_piece_review_path(@art_piece) %>
 
+<%= link_to 'Leave a review', new_art_piece_review_path(@art_piece) %>
