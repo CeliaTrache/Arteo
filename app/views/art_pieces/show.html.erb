@@ -35,34 +35,52 @@
         </div>
       </div>
     </div>
-    <div class="booking-form ml-3 mt-4" >
-      <div class="container">
-        <div class="form-wrapper">
-          <h2 class="mb-4">Book this art piece</h2>
-          <%= simple_form_for [ @art_piece, @booking ] do |f| %>
-            <%= f.input :start_time, as: :string, required: false, input_html: {id: "datepicker1"} %>
-            <%= f.input :end_time, as: :string, required: false, input_html: {id: "datepicker2"} %>
-            <%= f.button :submit, "Book", class: "btn btn-primary", data: { toggle: "modal", target: "#exampleModal" } %>
-          <% end %>
-          <div class="price mt-3"></div>
-          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Booking Confirmed !</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
+    <div class="booking-form">
+
+      <div class="form-wrapper reservation-form">
+        <h2 class="mb-4">Book this art piece</h2>
+        <%= simple_form_for [ @art_piece, @booking ] do |f| %>
+          <%= f.input :start_time, as: :string, required: false, input_html: {id: "datepicker1"} %>
+          <%= f.input :end_time, as: :string, required: false, input_html: {id: "datepicker2"} %>
+          <%= f.button :submit, "Book", class: "btn btn-primary", data: { toggle: "modal", target: "#exampleModal" } %>
+        <% end %>
+        <div class="price mt-3"></div>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Booking Confirmed !</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <div class="review-form">
+        <h3><%= pluralize @art_piece.reviews.size, "review" %></h3>
+        <div id="reviews">
+          <% if @art_piece.reviews.blank? %>
+            <p><em> Be the first to leave a review </em></p>
+          <% else %>
+            <% @art_piece.reviews.each do |review| %>
+            <p><%= review.content %></p>
+          <% end %>
+        <% end %>
+        </div>
+        <div class="form-wrapper">
+          <%= simple_form_for [ @art_piece, @review ] do |f| %>
+          <%= f.input :rating, input_html: { style: 'width: 50%' } %>
+          <%= f.input :content, placeholder: 'Leave your review', label: false, input_html: { style: 'width: 300px' } %>
+          <%= f.button :submit, "Comment", class: "btn btn-outline-primary" %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
-  <%= link_to 'Leave a review', new_art_piece_review_path(@art_piece) %>
 </div>
