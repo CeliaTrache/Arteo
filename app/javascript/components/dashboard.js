@@ -13,10 +13,10 @@ const initUpdateDashboardOnClick = () => {
           contentInactive.classList.add('inactive');
           tab.classList.add('active');
           contentActive.classList.remove('inactive');
-          console.log(tab);
-          console.log(tabInactive);
-          console.log(contentActive);
-          console.log(contentInactive);
+          // console.log(tab);
+          // console.log(tabInactive);
+          // console.log(contentActive);
+          // console.log(contentInactive);
         }
         else {
           const tabInactive = tabs[0];
@@ -26,14 +26,26 @@ const initUpdateDashboardOnClick = () => {
           contentInactive.classList.add('inactive');
           tab.classList.add('active');
           contentActive.classList.remove('inactive');
-          console.log(tab);
-          console.log(tabInactive);
-          console.log(contentActive);
-          console.log(contentInactive);
+          // console.log(tab);
+          // console.log(tabInactive);
+          // console.log(contentActive);
+          // console.log(contentInactive);
         }
       });
     })
   }
 }
 
-export { initUpdateDashboardOnClick };
+const displayMessageIfDashboardIsEmpty = () => {
+  // console.log('Hello');
+  const messages = document.querySelectorAll('.message');
+  // console.log(messages);
+  messages.forEach((message) => {
+    if (message.innerText.replace(/^\s+|\s+$/g, '') === "") {
+      message.classList.add('inactive');
+    }
+    // console.log(message.innerText);
+  });
+}
+
+export { initUpdateDashboardOnClick, displayMessageIfDashboardIsEmpty };

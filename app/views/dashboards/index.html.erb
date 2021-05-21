@@ -1,4 +1,4 @@
-<div class="show-container dashboard" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "art_gallery_3.jpg", crop: :fill %>')">
+<div class="dashboard" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "art_gallery_3.jpg", crop: :fill %>')">
 
   <div class="dashboard-container">
 
@@ -14,76 +14,88 @@
     </div>
 
     <div class="contents">
-      <%# <div class="flex-card"> %>
       <div class="content bookings">
+        <div class="container mb-5 message">
+          <div class="d-flex justify-content-between my-4">
+            <span class="mb-2 d-block"><small><em class="text-muted"><%= "You haven't saved any paintings yet!" if @bookings.empty? %></em></small></span>
+          </div>
+        </div>
         <div class="content-infos">
           <% @bookings.each do |booking| %>
-          <ul class="dashboard-card">
-          <div class="card-product">
-            <div class="card-image">
-              <img src="<%= booking.art_piece.picture %>">
-            </div>
-            <div class="card-title">
-              <h2><%= link_to booking.art_piece.title, art_piece_path(booking.art_piece.id) %></h2>
-            </div>
-            <div class="card-dates">
-              <p>dates</p>
-            </div>
-            <div class="card-price">
-              <p><%= booking.price %> €</p>
-            </div>
-            <div class="card-statut">
-              <p>statut</p>
-            </div>
-          </ul>
+            <ul class="dashboard-card">
+              <div class="card-product">
+                <div class="card-image">
+                  <img src="<%= booking.art_piece.picture %>">
+                </div>
+                <div class="card-title">
+                  <h2><%= link_to booking.art_piece.title, art_piece_path(booking.art_piece.id) %></h2>
+                </div>
+                <div class="card-dates">
+                  <p><%= booking.start_time.strftime('%a, %d, %b') %> - <%= booking.end_time.strftime('%a, %d, %b') %></p>
+                </div>
+                <div class="card-price">
+                  <p><%= booking.price %> €</p>
+                </div>
+                <div class="card-statut">
+                  <p><%= booking.status %></p>
+                </div>
+              </ul>
           <% end %>
         </div>
         <div class="btn btn-group">
           <%= link_to 'Book another painting', art_pieces_path, class: "btn btn-outline-dark" %>
         </div>
-        <%# </div> %>
       </div>
 
       <div class="content collection inactive">
-        <%# <div class="flex-card"> %>
+        <div class="container mb-5 message">
+          <div class="d-flex justify-content-between my-4">
+            <span class="mb-2 d-block"><small><em class="text-muted"><%= "You haven't posted any paintings yet!" if @bookings.empty? %></em></small></span>
+          </div>
+        </div>
         <div class="content-infos">
-          <% @bookings.each do |booking| %>
-          <ul class="dashboard-card">
-            <div class="card-product">
-              <div class="card-image">
-                <img src="<%= booking.art_piece.picture %>">
-              </div>
-              <div class="card-title">
-                <h2><%= link_to booking.art_piece.title, art_piece_path(booking.art_piece.id) %></h2>
-              </div>
-              <div class="card-dates">
-                <p>dates</p>
-              </div>
-              <div class="card-price">
-                <p><%= booking.price %> €</p>
-              </div>
-              <div class="card-statut">
-                <div class="btn btn-group">
-                  <%# <%= link_to 'Accept', dashboard_path, method: :patch, class: "btn btn-outline-success" %> %>
+          <% @pending_bookings.each do |booking| %>
+            <ul class="dashboard-card">
+              <div class="card-product">
+                <div class="card-image">
+                  <img src="<%= booking.art_piece.picture %>">
                 </div>
-                <div class="btn btn-group">
-                  <%# <%= link_to 'Decline', dashboard_path, method: :patch, class: "btn btn-outline-danger" %> %>
+                <div class="card-title">
+                  <h2><%= link_to booking.art_piece.title, art_piece_path(booking.art_piece.id) %></h2>
                 </div>
-                  <%# <%= simple_form_for [ @art_piece, @booking ] do |f| %>
-                    <%# <%= f.button :submit, "Accept", class: "btn btn-success", data: { toggle: "modal", target: "#exampleModal" } %>
-                  <%# <% end %>
+                <div class="card-dates">
+                  <p>dates</p>
+                </div>
+                <div class="card-price">
+                  <p><%= booking.price %> €</p>
+                </div>
+                <div class="card-statut">
+                  <% if booking.status == "waiting"%>
+                    <div class="btn btn-group accept-decline">
+                      <%= link_to 'Accept', booking_accept_path(booking), method: :patch, class: "btn btn-outline-success" %>
+                    </div>
+                    <div class="btn btn-group accept-decline">
+                      <%= link_to 'Decline', booking_decline_path(booking), method: :patch, class: "btn btn-outline-danger" %>
+                    </div>
+                  <% elsif booking.status == "validate" %>
+                    <div class="btn btn-outline-success">
+                      <p>Booking accepté</p>
+                    </div>
+                  <% elsif booking.status == "decline" %>
+                    <div class="btn btn-outline-danger">
+                      <p>Booking refusé</p>
+                    </div>
+                  <%end%>
+                </div>
               </div>
-            </div>
-          </ul>
+            </ul>
           <% end %>
         </div>
         <div class="btn btn-group">
           <%= link_to 'Post another painting', "#", class: "btn btn-outline-dark" %>
         </div>
-        <%# </div> %>
       </div>
     </div>
-
 
   </div>
 </div>
